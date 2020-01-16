@@ -5,6 +5,10 @@ import lombok.extern.apachecommons.CommonsLog;
 @CommonsLog
 public final class MyClass {
 
+    public int add(int a, int b) {
+        return a+b;
+    }
+
     public int foo1() {
         return 1;
     }
