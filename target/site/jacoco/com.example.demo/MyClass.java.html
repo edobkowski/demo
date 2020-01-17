@@ -6,69 +6,74 @@ import java.util.List;
 
 <span class="fc" id="L7">@CommonsLog</span>
 <span class="fc" id="L8">public final class MyClass {</span>
-    static public String s;
+    private static  String s;
+
+
+    public int add(int a, int b) {
+<span class="nc" id="L13">        return a+b;</span>
+    }
 
     public int foo1() {
-<span class="fc" id="L12">        return 1;</span>
+<span class="fc" id="L17">        return 1;</span>
     }
 
     public int foo2() {
-<span class="fc" id="L16">        return 2;</span>
+<span class="fc" id="L21">        return 2;</span>
     }
 
     public int foo3() {
-<span class="fc" id="L20">        return 3;</span>
+<span class="fc" id="L25">        return 3;</span>
     }
 
     public int foo4() {
-<span class="fc" id="L24">        return 4;</span>
+<span class="fc" id="L29">        return 4;</span>
     }
 
     private int foo5() {
-<span class="nc" id="L28">        String s = &quot;dupa8&quot;;</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
-<span class="nc" id="L30">            return 1;</span>
-<span class="nc" id="L31">        return 0;</span>
+<span class="nc" id="L33">        String s = &quot;dupa8&quot;;</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
+<span class="nc" id="L35">            return 1;</span>
+<span class="nc" id="L36">        return 0;</span>
     }
     private int foo6() {
-<span class="nc" id="L34">        String s = &quot;dupa8&quot;;</span>
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
-<span class="nc" id="L36">            return 1;</span>
-<span class="nc" id="L37">        return 0;</span>
+<span class="nc" id="L39">        String s = &quot;dupa8&quot;;</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
+<span class="nc" id="L41">            return 1;</span>
+<span class="nc" id="L42">        return 0;</span>
     }
     private int foo7() {
-<span class="nc" id="L40">        String s = &quot;dupa8&quot;;</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
-<span class="nc" id="L42">            return 1;</span>
-<span class="nc" id="L43">        return 0;</span>
+<span class="nc" id="L45">        String s = &quot;dupa8&quot;;</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
+<span class="nc" id="L47">            return 1;</span>
+<span class="nc" id="L48">        return 0;</span>
     }
-    private int foo8() {
-<span class="nc" id="L46">        String s = &quot;dupa8&quot;;</span>
-<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
-<span class="nc" id="L48">            return 1;</span>
-<span class="nc" id="L49">        return 0;</span>
+    public int foo8() {
+<span class="nc" id="L51">        String s = &quot;dupa8&quot;;</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">        if (s.equals(&quot;dupa8&quot;))</span>
+<span class="nc" id="L53">            return 1;</span>
+<span class="nc" id="L54">        return 0;</span>
     }
 
     public void doSomething(String [] strings) {
-<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (int i = 0; i &lt; strings.length; i--) { // Noncompliant;</span>
-<span class="nc" id="L54">            String string = strings[i];  // ArrayIndexOutOfBoundsException when i reaches -1</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        for (int i = 0; i &lt; strings.length; i--) { // Noncompliant;</span>
+<span class="nc" id="L59">            String string = strings[i];  // ArrayIndexOutOfBoundsException when i reaches -1</span>
             //...
         }
-<span class="nc" id="L57">    }</span>
+<span class="nc" id="L62">    }</span>
 
     public void doSth(boolean b) {
-<span class="nc bnc" id="L60" title="All 2 branches missed.">        if (b) {  // Noncompliant</span>
-<span class="nc" id="L61">            doOneMoreThing();</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (b) {  // Noncompliant</span>
+<span class="nc" id="L66">            doOneMoreThing();</span>
         } else {
-<span class="nc" id="L63">            doOneMoreThing();</span>
+<span class="nc" id="L68">            doOneMoreThing();</span>
         }
-<span class="nc" id="L65">    }</span>
+<span class="nc" id="L70">    }</span>
 
     public String [] getStringArray(List&lt;String&gt; strings) {
-<span class="nc" id="L68">        return (String []) strings.toArray();  // Noncompliant; ClassCastException thrown</span>
+<span class="nc" id="L73">        return (String []) strings.toArray();  // Noncompliant; ClassCastException thrown</span>
     }
 
     private void doOneMoreThing() {
-<span class="nc" id="L72">    }</span>
+<span class="nc" id="L77">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
