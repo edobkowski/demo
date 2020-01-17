@@ -30,27 +30,45 @@ import java.util.List;
 <span class="nc" id="L30">            return 1;</span>
 <span class="nc" id="L31">        return 0;</span>
     }
+    private int foo6() {
+<span class="nc" id="L34">        String s = &quot;dupa8&quot;;</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
+<span class="nc" id="L36">            return 1;</span>
+<span class="nc" id="L37">        return 0;</span>
+    }
+    private int foo7() {
+<span class="nc" id="L40">        String s = &quot;dupa8&quot;;</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
+<span class="nc" id="L42">            return 1;</span>
+<span class="nc" id="L43">        return 0;</span>
+    }
+    private int foo8() {
+<span class="nc" id="L46">        String s = &quot;dupa8&quot;;</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
+<span class="nc" id="L48">            return 1;</span>
+<span class="nc" id="L49">        return 0;</span>
+    }
 
     public void doSomething(String [] strings) {
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (int i = 0; i &lt; strings.length; i--) { // Noncompliant;</span>
-<span class="nc" id="L36">            String string = strings[i];  // ArrayIndexOutOfBoundsException when i reaches -1</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (int i = 0; i &lt; strings.length; i--) { // Noncompliant;</span>
+<span class="nc" id="L54">            String string = strings[i];  // ArrayIndexOutOfBoundsException when i reaches -1</span>
             //...
         }
-<span class="nc" id="L39">    }</span>
+<span class="nc" id="L57">    }</span>
 
     public void doSth(boolean b) {
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (b) {  // Noncompliant</span>
-<span class="nc" id="L43">            doOneMoreThing();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        if (b) {  // Noncompliant</span>
+<span class="nc" id="L61">            doOneMoreThing();</span>
         } else {
-<span class="nc" id="L45">            doOneMoreThing();</span>
+<span class="nc" id="L63">            doOneMoreThing();</span>
         }
-<span class="nc" id="L47">    }</span>
+<span class="nc" id="L65">    }</span>
 
     public String [] getStringArray(List&lt;String&gt; strings) {
-<span class="nc" id="L50">        return (String []) strings.toArray();  // Noncompliant; ClassCastException thrown</span>
+<span class="nc" id="L68">        return (String []) strings.toArray();  // Noncompliant; ClassCastException thrown</span>
     }
 
     private void doOneMoreThing() {
-<span class="nc" id="L54">    }</span>
+<span class="nc" id="L72">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -36,6 +36,18 @@ public final class MyClass {
             return 1;
         return 0;
     }
+    private int foo7() {
+        String s = "dupa8";
+        if (s == "dupa8")
+            return 1;
+        return 0;
+    }
+    private int foo8() {
+        String s = "dupa8";
+        if (s == "dupa8")
+            return 1;
+        return 0;
+    }
 
     public void doSomething(String [] strings) {
         for (int i = 0; i < strings.length; i--) { // Noncompliant;
