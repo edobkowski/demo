@@ -2,8 +2,11 @@ package com.example.demo;
 
 import lombok.extern.apachecommons.CommonsLog;
 
+import java.util.List;
+
 @CommonsLog
 public final class MyClass {
+    static public String s;
 
     public int foo1() {
         return 1;
@@ -20,56 +23,17 @@ public final class MyClass {
     public int foo4() {
         return 4;
     }
-    private void anotherFuckedUpMethod() {
-        System.out.println("dupa8");
+
+    private int foo5() {
+        String s = "dupa8";
+        if (s == "dupa8")
+            return 1;
+        return 0;
     }
-
-    private void anotherFuckedUpMethod2() {
-        int j = 0;
-        for (int i = 0; i<10; j++) {
-
-        }
-    }
-
-    public void unusedMethod() {
-        int i = 5;
-        i += 1;
-        log.info(i);
-    }
-
-
-    public void vulnerableMethod() throws ClassNotFoundException {
-        String className = System.getProperty("messageClassName");
-        Class clazz = Class.forName(className);  // Noncompliant
-    }
-
-    private void anotherFuckedUpMethod3() {
-        int j = 0;
-        for (int i = 0; i<10; j++) {
-
-        }
-    }
-
-    private int calculateSth(int i) {
-        if (i == 2) {
-            return 2;
-        } else {
-            if (i == 3) {
-                return 3;
-            } else {
-                if (i == 4) {
-                    return 4;
-                } else if (i == 5 && i == 1) {
-                } else if (i < 6) {
-                    System.out.println("OMG");
-                } else if (i > 6) {
-                    System.out.println("More if statements!");
-                } else if (i == 100) {
-                    System.out.println("It doesn't make any sense");
-                }
-            }
-        }
-
+    private int foo6() {
+        String s = "dupa8";
+        if (s == "dupa8")
+            return 1;
         return 0;
     }
 
@@ -86,6 +50,10 @@ public final class MyClass {
         } else {
             doOneMoreThing();
         }
+    }
+
+    public String [] getStringArray(List<String> strings) {
+        return (String []) strings.toArray();  // Noncompliant; ClassCastException thrown
     }
 
     private void doOneMoreThing() {

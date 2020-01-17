@@ -2,93 +2,55 @@
 
 import lombok.extern.apachecommons.CommonsLog;
 
-<span class="fc" id="L5">@CommonsLog</span>
-<span class="fc" id="L6">public final class MyClass {</span>
+import java.util.List;
+
+<span class="fc" id="L7">@CommonsLog</span>
+<span class="fc" id="L8">public final class MyClass {</span>
+    static public String s;
 
     public int foo1() {
-<span class="fc" id="L9">        return 1;</span>
+<span class="fc" id="L12">        return 1;</span>
     }
 
     public int foo2() {
-<span class="fc" id="L13">        return 2;</span>
+<span class="fc" id="L16">        return 2;</span>
     }
 
     public int foo3() {
-<span class="fc" id="L17">        return 3;</span>
+<span class="fc" id="L20">        return 3;</span>
     }
 
     public int foo4() {
-<span class="fc" id="L21">        return 4;</span>
+<span class="fc" id="L24">        return 4;</span>
     }
-    private void anotherFuckedUpMethod() {
-<span class="nc" id="L24">        System.out.println(&quot;dupa8&quot;);</span>
-<span class="nc" id="L25">    }</span>
 
-    private void anotherFuckedUpMethod2() {
-<span class="nc" id="L28">        int j = 0;</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        for (int i = 0; i&lt;10; j++) {</span>
-
-        }
-<span class="nc" id="L32">    }</span>
-
-    public void unusedMethod() {
-<span class="nc" id="L35">        int i = 5;</span>
-<span class="nc" id="L36">        i += 1;</span>
-<span class="nc" id="L37">        log.info(i);</span>
-<span class="nc" id="L38">    }</span>
-
-
-    public void vulnerableMethod() throws ClassNotFoundException {
-<span class="nc" id="L42">        String className = System.getProperty(&quot;messageClassName&quot;);</span>
-<span class="nc" id="L43">        Class clazz = Class.forName(className);  // Noncompliant</span>
-<span class="nc" id="L44">    }</span>
-
-    private void anotherFuckedUpMethod3() {
-<span class="nc" id="L47">        int j = 0;</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (int i = 0; i&lt;10; j++) {</span>
-
-        }
-<span class="nc" id="L51">    }</span>
-
-    private int calculateSth(int i) {
-<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (i == 2) {</span>
-<span class="nc" id="L55">            return 2;</span>
-        } else {
-<span class="nc bnc" id="L57" title="All 2 branches missed.">            if (i == 3) {</span>
-<span class="nc" id="L58">                return 3;</span>
-            } else {
-<span class="nc bnc" id="L60" title="All 2 branches missed.">                if (i == 4) {</span>
-<span class="nc" id="L61">                    return 4;</span>
-<span class="nc bnc" id="L62" title="All 4 branches missed.">                } else if (i == 5 &amp;&amp; i == 1) {</span>
-<span class="nc bnc" id="L63" title="All 2 branches missed.">                } else if (i &lt; 6) {</span>
-<span class="nc" id="L64">                    System.out.println(&quot;OMG&quot;);</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">                } else if (i &gt; 6) {</span>
-<span class="nc" id="L66">                    System.out.println(&quot;More if statements!&quot;);</span>
-<span class="nc bnc" id="L67" title="All 2 branches missed.">                } else if (i == 100) {</span>
-<span class="nc" id="L68">                    System.out.println(&quot;It doesn't make any sense&quot;);</span>
-                }
-            }
-        }
-
-<span class="nc" id="L73">        return 0;</span>
+    private int foo5() {
+<span class="nc" id="L28">        String s = &quot;dupa8&quot;;</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (s == &quot;dupa8&quot;)</span>
+<span class="nc" id="L30">            return 1;</span>
+<span class="nc" id="L31">        return 0;</span>
     }
 
     public void doSomething(String [] strings) {
-<span class="nc bnc" id="L77" title="All 2 branches missed.">        for (int i = 0; i &lt; strings.length; i--) { // Noncompliant;</span>
-<span class="nc" id="L78">            String string = strings[i];  // ArrayIndexOutOfBoundsException when i reaches -1</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (int i = 0; i &lt; strings.length; i--) { // Noncompliant;</span>
+<span class="nc" id="L36">            String string = strings[i];  // ArrayIndexOutOfBoundsException when i reaches -1</span>
             //...
         }
-<span class="nc" id="L81">    }</span>
+<span class="nc" id="L39">    }</span>
 
     public void doSth(boolean b) {
-<span class="nc bnc" id="L84" title="All 2 branches missed.">        if (b) {  // Noncompliant</span>
-<span class="nc" id="L85">            doOneMoreThing();</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (b) {  // Noncompliant</span>
+<span class="nc" id="L43">            doOneMoreThing();</span>
         } else {
-<span class="nc" id="L87">            doOneMoreThing();</span>
+<span class="nc" id="L45">            doOneMoreThing();</span>
         }
-<span class="nc" id="L89">    }</span>
+<span class="nc" id="L47">    }</span>
+
+    public String [] getStringArray(List&lt;String&gt; strings) {
+<span class="nc" id="L50">        return (String []) strings.toArray();  // Noncompliant; ClassCastException thrown</span>
+    }
 
     private void doOneMoreThing() {
-<span class="nc" id="L92">    }</span>
+<span class="nc" id="L54">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
